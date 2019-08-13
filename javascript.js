@@ -213,7 +213,7 @@ function spinWords(str) {
 }
 
 
-
+/* Quick Sort */
 function qsort(arr) {
     if (arr.length < 2) {
         return arr;
@@ -247,3 +247,20 @@ let arr = [4, 3, 1, 8, 5, 7, 15, 12, 5, 9];
 let sorterArr = qsort(randArr());
 
 console.log(`Sorted array: ${sorterArr.join(", ")}`)
+
+
+/* Sorting by bits( codewars )*/
+
+function sortByBit(arr) {
+    arr = arr.map((e) => {
+        let bns = +e.toString(2).replace(/0+/g, '');
+        let info = { e, bns };
+        return info;
+    })
+
+    arr.sort((a, b) => (a.bns == b.bns) ? (a.e - b.e) : (a.bns - b.bns)); //In cases where two numbers have the same number of bits, compare their real values instead.
+
+    return arr.map((e) => e.e);
+}
+
+//console.log(sortByBit([3, 8, 3, 6, 5, 7, 9, 1]));
