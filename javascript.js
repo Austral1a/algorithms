@@ -264,3 +264,90 @@ function sortByBit(arr) {
 }
 
 //console.log(sortByBit([3, 8, 3, 6, 5, 7, 9, 1]));
+
+
+/* Morse Code Translator */
+
+function encode(str) {
+
+    const morse = {
+        a: '.-',
+        b: '-...',
+        c: '-.-.',
+        d: '-..',
+        e: '.',
+        f: '..-.',
+        g: '--.',
+        h: '....',
+        i: '..',
+        j: '.---',
+        k: '-.-',
+        l: '.-..',
+        m: '--',
+        n: '-.',
+        o: '---',
+        p: '.--.',
+        q: '--.-',
+        r: '.-.',
+        s: '...',
+        t: '-',
+        u: '..-',
+        v: '...-',
+        w: '.--',
+        x: '-..-',
+        y: '-.--',
+        z: '--..',
+        ' ': '/'
+    }
+
+
+    return str.split("").map((char) => {
+        return `${morse[char.toLowerCase()]} `;
+    }).join("").trim();
+
+}
+
+//console.log(encode('hmltsqrflblmosykveknqeapyi bu dedqyyzvlfrjqaewrtfuixlotq'))
+
+
+
+function decode(str) {
+
+    let morse = {
+        '.-': 'A',
+        '-...': 'B',
+        '-.-.': 'C',
+        '-..': 'D',
+        '.': 'E',
+        '..-.': 'F',
+        '--.': 'G',
+        '....': 'H',
+        '..': 'I',
+        '.---': 'J',
+        '-.-': 'K',
+        '.-..': 'L',
+        '--': 'M',
+        '-.': 'N',
+        '---': 'O',
+        '.--.': 'P',
+        '--.-': 'Q',
+        '.-.': 'R',
+        '...': 'S',
+        '-': 'T',
+        '..-': 'U',
+        '...-': 'V',
+        '.--': 'W',
+        '-..-': 'X',
+        '-.--': 'Y',
+        '--..': 'Z',
+        '/': ' '
+    }
+
+
+    return str.split(" ").map((char) => {
+        return morse[char];
+    }).join("").toLowerCase().trim();
+
+}
+
+//console.log(decode('.. / -.-. .- -. / .-. . .- -.. / -- --- .-. ... . / -.-. --- -.. .'))
