@@ -351,3 +351,23 @@ function decode(str) {
 }
 
 //console.log(decode('.. / -.-. .- -. / .-. . .- -.. / -- --- .-. ... . / -.-. --- -.. .'))
+
+
+
+/* extract file name, codeward*/
+/*
+1)Assume it will start with date represented as long number
+2)Followed by an underscore
+3)Youll have then a filename with an extension
+4)it will always have an extra extension at the end
+*/
+class FileNameExtractor {
+    static extractFileName(dirtyFileName) {
+
+        return dirtyFileName.replace(/([0-9]+_)/g, '')
+            .replace(/([a-z0-9?]+_?)(\.)([a-z0-9]+\.)(.+)/gi, `$1$2$3`)
+            .replace(/(\.$)/, '');
+    }
+}
+//console.log(FileNameExtractor.extractFileName('1_This_is_an_otherExample.mpg.OTHEREXTENSIONadasdassdassds34'));
+
