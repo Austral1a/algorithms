@@ -7,7 +7,7 @@ function getMiddle(s) {
 }
 
 
-/* yaksho first el of array more than 54 and second 7 , so then this is 'Senior', if not 'Open'*/
+/* if first el of array more than 54 and second 7 , so then this is 'Senior', if not - 'Open'*/
 function openOrSenior(data) {
 
     let results = [];
