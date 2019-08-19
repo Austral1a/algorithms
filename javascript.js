@@ -249,7 +249,7 @@ let sorterArr = qsort(randArr());
 console.log(`Sorted array: ${sorterArr.join(", ")}`)
 
 
-/* Sorting by bits( codewars )*/
+/* Sorting by bits( codewars ) */
 
 function sortByBit(arr) {
     arr = arr.map((e) => {
@@ -354,7 +354,7 @@ function decode(str) {
 
 
 
-/* extract file name, codeward*/
+/* extract file name, codewars */
 /*
 1)Assume it will start with date represented as long number
 2)Followed by an underscore
@@ -371,3 +371,19 @@ class FileNameExtractor {
 }
 //console.log(FileNameExtractor.extractFileName('1_This_is_an_otherExample.mpg.OTHEREXTENSIONadasdassdassds34'));
 
+/* Meeting , codewars */
+function meeting(s) {
+
+    // Expected Output (SURNAME, NAME).....
+    s = s.replace(/;/g, ' ');
+    s = s.split(' ').map((e) => {
+        return e
+            .replace(/:/g, ', ')
+            .replace(/^([^\s]+)(,\s+)([^\s]+)/g, '$3$2$1')
+            .replace(/^([^\s]+)(,\s+)([^\s]+)/g, `($1$2$3)`).toUpperCase();
+    });
+    return s.sort();
+
+}
+
+meeting("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn")
