@@ -387,3 +387,26 @@ function meeting(s) {
 }
 
 meeting("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn")
+
+/* Kebabize, codewars */
+function kebabize(str) {
+
+    return str.replace(/([A-Z])/g, '-$1')
+        .replace(/[\d]+/g, '')
+        .replace(/^-/g, '').toLowerCase();
+
+}
+
+//console.log(kebabize('HombreCamelsHave3Humps')); --> hobre-camels-have-humps
+
+/* reverse method for strings */
+const reverse = (str) => {
+
+    let result = '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        result += str[i];
+    }
+    return result;
+}
+
+//console.log(reverse('Hello, world!'))
