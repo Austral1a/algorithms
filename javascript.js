@@ -399,14 +399,22 @@ function kebabize(str) {
 
 //console.log(kebabize('HombreCamelsHave3Humps')); --> hobre-camels-have-humps
 
-/* reverse method for strings */
-const reverse = (str) => {
-
-    let result = '';
-    for (let i = str.length - 1; i >= 0; i--) {
-        result += str[i];
+/* reverse method for strings & arrays */
+const reverse = (input) => {
+    let result;
+    if (typeof input === 'string') {
+        result = '';
+        for (let i = input.length - 1; i >= 0; i--) {
+            result += input[i];
+        }
+    } else if (Array.isArray(input)) {
+        result = [];
+        for (let i = input.length - 1; i >= 0; i--) {
+            result.push(input[i]);
+        }
     }
     return result;
 }
 
+//console.log( reverse([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) )
 //console.log(reverse('Hello, world!'))
