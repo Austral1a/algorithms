@@ -428,20 +428,38 @@ function LongestWord(sen) {
 
 //console.log(LongestWord("a beautiful sentence^&!")) --> beautiful
 
-const bubbleSort = (arr) => {
-
-    for (let i = arr.length - 1; i > 0; i--) {
-
-        for (let j = 0; j < i; j++) {
+const bubbleSort = arr => {
+    for (let i = 0, endI = arr.length - 1; i < endI; i++) {
+        let wasSwap = false;
+        for (let j = 0, endJ = endI - i; j < endJ; j++) {
             if (arr[j] > arr[j + 1]) {
-                let temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                wasSwap = true;
             }
         }
-
+        if (!wasSwap) break;
     }
     return arr;
-}
+};
 
 //console.log( bubbleSort([5,7,8,9,4,2,8,4,6,7,4,5,6,7,8,9,2,5,4,6,1,2,3,4,5,6]) )
+
+/* String transformer, codewars */
+function stringTransformer(str) {
+    str = str.split(' ').reverse().join(' ');
+    return str.split('').map((word) => (word === word.toUpperCase()) ? word.toLowerCase() : word.toUpperCase()).join('');
+}
+
+//stringTransformer('Example string') --> STRING eXAMPLE;
+
+
+/* Counting sheep..., codewars */
+const countSheeps = (arr) => {
+    return (arr.filter(Boolean)).length;
+}
+
+/* Breaking chocolate problem, codewars */
+const breakChocolate = (n, m) => {
+    let pieces = n * m;
+    return pieces > 0 ? pieces - 1 : 0;
+}
