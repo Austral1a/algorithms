@@ -463,3 +463,10 @@ const breakChocolate = (n, m) => {
     let pieces = n * m;
     return pieces > 0 ? pieces - 1 : 0;
 }
+
+/* Sort Arrays (Ignoring Case), codewars */
+const sortme = ( names ) => {
+    return names.sort((a, b) => {
+        return a.localeCompare(b, {sensitivity: "base"})
+    })
+}
