@@ -470,3 +470,54 @@ const sortme = ( names ) => {
         return a.localeCompare(b, {sensitivity: "base"})
     })
 }
+
+const convergence= (n) => {
+    let base = [1, 2, 4, 8, 16, 22, 26, 38, 62, 74, 102, 104, 108, 116, 122]
+    let startArr = [n]
+    let stop = false
+    let i = 0
+    function splitToDigit(num){
+        return (String(num)).split('').map((i) => Number(i)).filter(Boolean).reduce((a,b) => a * b)
+    }
+    do {
+        startArr.push(startArr[i] + (splitToDigit(startArr[i])))
+        i++
+        if (base.includes(startArr[i])) {
+            stop = true
+        }
+    } while (!stop)
+    console.log(startArr.length - 1, startArr)
+}
+
+const titleCase = (title, minorWords) => {
+    if(!title && !minorWords) return ''
+    if (!!minorWords) {
+        title = title.toLowerCase()
+        minorWords = minorWords.toLowerCase()
+        title = title.split(' ').map(e => {
+            return e[0].toUpperCase() + e.slice(1, e.length)
+        })
+        minorWords = minorWords.split(' ')
+        let newArr = []
+        title.forEach(e => {
+            if(e.toLowerCase() === minorWords[minorWords.indexOf(e.toLowerCase())]) {
+                newArr.push(e.toLowerCase())
+            } else {
+                newArr.push(e)
+            }
+        })
+        // first letter is always capitalized
+        newArr = newArr.join(' ')
+        res = newArr.charAt(0).toUpperCase() + newArr.slice(1)
+        return res
+    } else {
+        title = title.toLowerCase()
+        // minorWords = minorWords.toLowerCase()
+        title = title.split(' ').map(e => {
+            return e[0].toUpperCase() + e.slice(1, e.length)
+        })
+        return title.join(' ')
+    }
+}
+
+titleCase('the quick brown fox')
