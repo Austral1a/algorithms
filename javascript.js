@@ -520,4 +520,13 @@ const titleCase = (title, minorWords) => {
     }
 }
 
-titleCase('the quick brown fox')
+var uniqueInOrder = function(iterable) {
+    let arr = []
+    Array.isArray(iterable) ? null : iterable = iterable.split('')
+    iterable.forEach((e, id) => {
+        if(iterable[id] !== iterable[id + 1]) {
+            arr.push(e)
+        }
+    })
+    return arr
+}
